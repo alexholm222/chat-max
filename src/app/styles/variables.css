@@ -1,0 +1,129 @@
+:root {
+  --background-primary: #fff;
+  --background-secondary: #f5f7fa;
+  --background-tertiary: #0909090d;
+  --background-card: #fff;
+  --background-overlay: #0c0d0e52;
+  --background-overlay-secondary: #0009;
+  --background-overlay-hard: #0c0d0ecc;
+  --divider-secondary: #0c0d0e0f;
+  --text-tertiary: #06070885;
+  --skeleton-background: #eef0f2;
+  --skeleton-shimmer: rgba(255, 255, 255, 0.55);
+  --text-negative: #ce4257;
+  --message-incoming: #ffffff;
+  --message-outgoing: #d9f5ff;
+  --message-text: #17181a;
+  --message-secondary-text: #7b8188;
+  --bubbles-background-bubble-gradient-step-1: #fff;
+  --bubbles-background-bubble-gradient-step-2: #fff;
+  --bubbles-background-bubble-gradient-step-3: #fff;
+  --bubbles-background-bubble-outcome-gradient-step-1: #e9fdff;
+  --bubbles-background-bubble-outcome-gradient-step-2: #e9fdff;
+  --bubbles-background-bubble-outcome-gradient-step-3: #e9fdff;
+  --chat-background-pattern-step-1: #d9f5ff;
+  --chat-background-pattern-step-2: #c8efff;
+  --chat-background-pattern-step-3: #b9e8ff;
+
+  --chat-background-pattern-step-4: #e7f9ff;
+  --chat-background-pattern-step-5: #d8f3ff;
+  --chat-background-pattern-step-6: #c8edff;
+
+  --chat-background-pattern-gradient-step-1: #f5fcff;
+  --chat-background-pattern-gradient-step-2: #dff5ff;
+  --capsule-outside: #282c42b2;
+
+  --corner-radius-0: 0px;
+  --corner-radius-10: 10px;
+  --corner-radius-12: 12px;
+  --corner-radius-16: 16px;
+  --corner-radius-2: 2px;
+  --corner-radius-20: 20px;
+  --corner-radius-28: 28px;
+  --corner-radius-4: 4px;
+  --corner-radius-6: 6px;
+  --corner-radius-8: 8px;
+  --corner-radius-full: 999px;
+  --size-4: 4px;
+  --spacing-m: 12px;
+  --spacing-l: 16px;
+  --spacing-xl-half: 20px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-common-m-half: 10px;
+  --metaWidth: 30px;
+  --metaHeight: 16px;
+}
+
+[data-theme="dark"] {
+  --background-primary: #17181c;
+  --background-secondary: #25262d;
+  --background-tertiary: #ffffff17;
+  --background-card: #25262d;
+  --background-overlay: #0d0d0da3;
+  --background-overlay-secondary: #0009;
+  --background-overlay-hard: #0c0d0ecc;
+  --divider-secondary: #ffffff0f;
+  --text-tertiary: #ffffffa3;
+  --message-incoming: #2b2d30;
+  --message-outgoing: #164b5a;
+  --message-text: #f5f6f7;
+  --message-secondary-text: #92979d;
+  --skeleton-background: #292a30;
+  --skeleton-shimmer: rgba(255, 255, 255, 0.04);
+  --bubbles-background-bubble-gradient-step-1: #3b3f5e;
+  --bubbles-background-bubble-gradient-step-2: #373a4e;
+  --bubbles-background-bubble-gradient-step-3: #32343d;
+  --bubbles-background-bubble-outcome-gradient-step-1: #8849b4;
+  --bubbles-background-bubble-outcome-gradient-step-2: #735acd;
+  --bubbles-background-bubble-outcome-gradient-step-3: #5d6ae5;
+  --bubbles-text-time: #ffffffa3;
+  --chat-background-pattern-step-1: #d9f5ff;
+  --chat-background-pattern-step-2: #c8efff;
+  --chat-background-pattern-step-3: #b9e8ff;
+
+  --chat-background-pattern-step-4: #e7f9ff;
+  --chat-background-pattern-step-5: #d8f3ff;
+  --chat-background-pattern-step-6: #c8edff;
+
+  --chat-background-pattern-gradient-step-1: #f5fcff;
+  --chat-background-pattern-gradient-step-2: #dff5ff;
+  --capsule-outside: #282c42b2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-primary: #17181c;
+    --background-secondary: #25262d;
+    --background-tertiary: #ffffff17;
+    --background-card: #25262d;
+    --background-overlay: #0d0d0da3;
+    --background-overlay-secondary: #0009;
+    --background-overlay-hard: #0c0d0ecc;
+    --divider-secondary: #ffffff0f;
+    --text-tertiary: #ffffffa3;
+    --skeleton-background: #292a30;
+    --skeleton-shimmer: rgba(255, 255, 255, 0.04);
+    --message-incoming: #2b2d30;
+    --message-outgoing: #164b5a;
+    --message-text: #f5f6f7;
+    --message-secondary-text: #92979d;
+    --bubbles-background-bubble-gradient-step-1: #3b3f5e;
+    --bubbles-background-bubble-gradient-step-2: #373a4e;
+    --bubbles-background-bubble-gradient-step-3: #32343d;
+    --bubbles-background-bubble-outcome-gradient-step-1: #8849b4;
+    --bubbles-background-bubble-outcome-gradient-step-2: #735acd;
+    --bubbles-background-bubble-outcome-gradient-step-3: #5d6ae5;
+    --bubbles-text-time: #ffffffa3;
+    --chat-background-pattern-step-1: #d9f5ff;
+    --chat-background-pattern-step-2: #c8efff;
+    --chat-background-pattern-step-3: #b9e8ff;
+
+    --chat-background-pattern-step-4: #e7f9ff;
+    --chat-background-pattern-step-5: #d8f3ff;
+    --chat-background-pattern-step-6: #c8edff;
+
+    --chat-background-pattern-gradient-step-1: #f5fcff;
+    --chat-background-pattern-gradient-step-2: #dff5ff;
+  }
+}

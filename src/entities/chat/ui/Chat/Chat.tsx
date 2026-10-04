@@ -1,0 +1,47 @@
+import s from "./Chat.module.scss";
+import { useNavigate, useParams } from "react-router-dom";
+import { motion } from "motion/react";
+import { CellSimple, Counter } from "../../../../shared/ui";
+import { ChatAvatar } from "../ChatAvatar/ChatAvatar";
+import { ChatLastMessage } from "../ChatLastMessage/ChatLastMessage";
+import classNames from "classnames";
+
+export const Chat = ({ chat, virtualItem }) => {
+  const { chatId: openChatId } = useParams<{ chatId: string }>();
+  const navigate = useNavigate();
+  return (
+    <motion.div
+      initial={false}
+      layout
+      transition={{
+        duration: 0.2,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      <CellSimple
+        surface={openChatId === chat.chatId ? "island" : "default"}
+        key={chat.chatId}
+        className={classNames(
+          s.chat,
+          openChatId === chat.chatId && s.chat_active
+        )}
+        style={{
+          height: `${virtualItem.size}px`,
+          transform: `translateY(${virtualItem.start}px)`,
+        }}
+        innerClassNames={{
+          before: s.before,
+        }}
+        before={<ChatAvatar chatId={chat.chatId} size={56} />}
+        after={
+          chat.unreadCount > 0 && (
+            <Counter key="counter" value={chat.unreadCount} />
+          )
+        }
+        onClick={() => navigate(`${chat.chatId}`)}
+        title={chat.name}
+        subtitle={<ChatLastMessage chatId={chat.chatId} />}
+      />
+    </motion.div>
+  );
+};

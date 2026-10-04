@@ -1,0 +1,23 @@
+.root {
+    position: relative;
+    width: 100%;
+  }
+  
+  .content {
+    height: 100%;
+    &[data-loading="true"] {
+      visibility: hidden;
+    }
+  
+    &[data-loading="false"] {
+      visibility: visible;
+    }
+  }
+  
+  .skeleton {
+    position: absolute;
+    inset: 0;
+  
+    width: 100%;
+    height: 100%;
+  }

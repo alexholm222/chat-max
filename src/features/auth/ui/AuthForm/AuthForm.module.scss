@@ -1,0 +1,10 @@
+.form {
+  width: 400px;
+  height:fit-content;
+  border-radius: var(--corner-radius-28);
+  background-color: var(--background-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-l);
+  padding: var(--spacing-l);
+}

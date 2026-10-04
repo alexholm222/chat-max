@@ -1,0 +1,10 @@
+.message {
+  height: 40px;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 20px;
+  word-break: break-word;
+  font-size: 14px;
+}

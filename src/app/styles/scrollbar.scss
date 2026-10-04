@@ -1,0 +1,11 @@
+.simplebar-scrollbar {
+  &::before {
+    background: var(--text-tertiary);
+   
+  }
+}
+
+.simplebar-track.simplebar-vertical {
+  width: 10px;
+  margin-right: 2px;
+}
