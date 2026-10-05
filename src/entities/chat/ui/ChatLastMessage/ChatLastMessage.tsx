@@ -16,7 +16,7 @@ export const ChatLastMessage = ({ chatId }: ChatLastMessageProps) => {
   return (
     <SkeletonWrapper
       isLoading={isLoading}
-      skeleton={<ChatLastMessageSceleton/>}
+      skeleton={<ChatLastMessageSceleton />}
     >
       <div className={s.message}>
         {!lastMessage && "Не удалось загрузить последнее сообщение"}
