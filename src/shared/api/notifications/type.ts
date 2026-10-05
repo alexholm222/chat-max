@@ -52,3 +52,7 @@ export interface IncomingMessageNotification {
     messageData: IncomingTextMessageData;
   };
 }
+
+export type Notification =
+  | IncomingMessageNotification
+  | MessageStatusNotification;

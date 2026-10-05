@@ -16,8 +16,18 @@ export const useSendMessage = (chatId: string) => {
   ];
 
   return useMutation({
-    mutationFn: (message: string) =>
-      sendMessage({ ...instance, chatId, message }),
+    mutationFn: (message: string) => {
+      if (!instance?.idInstance || !instance.apiTokenInstance) {
+        throw new Error("Instance is empity");
+      }
+
+      return sendMessage({
+        idInstance: instance.idInstance,
+        apiTokenInstance: instance.apiTokenInstance,
+        chatId,
+        message,
+      });
+    },
 
     onMutate: async (message) => {
       await queryClient.cancelQueries({

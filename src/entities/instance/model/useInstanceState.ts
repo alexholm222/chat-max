@@ -14,7 +14,12 @@ export const useInstanceState = () => {
 
   return useQuery({
     queryKey: ["instance-state", instance?.idInstance],
-    queryFn: () => getInstance(instance),
-    enabled: Boolean(instance)
-  }); 
+    queryFn: () => {
+      if (!instance?.idInstance || !instance.apiTokenInstance) {
+        throw new Error("Instance is empiy");
+      }
+      return getInstance(instance);
+    },
+    enabled: Boolean(instance),
+  });
 };

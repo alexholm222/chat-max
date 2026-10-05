@@ -13,18 +13,21 @@ export const useChatLastMessages = () => {
     queryKey: ["chat-last-messages", instance?.idInstance],
 
     queryFn: async ({ signal }) => {
+      if (!instance?.idInstance || !instance.apiTokenInstance) {
+        throw new Error("Instance empity");
+      }
       const [incoming, outgoing] = await Promise.all([
         requestQueue.add(() =>
           getLastIncomingMessages({
             ...instance,
             signal,
-          }),
+          })
         ),
         requestQueue.add(() =>
           getLastOutgoingMessages({
             ...instance,
             signal,
-          }),
+          })
         ),
       ]);
 

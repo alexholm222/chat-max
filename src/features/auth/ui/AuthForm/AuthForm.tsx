@@ -40,7 +40,7 @@ export const AuthForm = () => {
         hint={
           <ErrorHint
             isError={isError}
-            text={isError ? "Введены некоректные данные" : null}
+            text={isError ? "Введены некоректные данные" : undefined}
           />
         }
       />

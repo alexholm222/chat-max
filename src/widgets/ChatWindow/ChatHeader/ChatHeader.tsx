@@ -1,8 +1,14 @@
 import s from "./ChatHeader.module.scss";
 import { Contact } from "../../../entities/contact";
 
-export const ChatHeader = ({chatId}) => {
-  return <div className={s.root}>
-    <Contact chatId={chatId} />
-  </div>;
+interface ChatHeaderProps {
+  chatId: string;
+}
+
+export const ChatHeader = ({ chatId }: ChatHeaderProps) => {
+  return (
+    <div className={s.root}>
+      <Contact chatId={chatId} />
+    </div>
+  );
 };

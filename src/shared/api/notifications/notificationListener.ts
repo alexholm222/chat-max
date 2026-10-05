@@ -1,8 +1,9 @@
 import { Subject } from "rxjs";
 import { deleteNotification } from "./deleteNotification";
 import { receiveNotification } from "./receiveNotification";
+import type { Notification } from "../notifications/type";
 
-export const notification$ = new Subject();
+export const notification$ = new Subject<Notification>();
 
 interface StartNotificationListenerParams {
   idInstance: string;

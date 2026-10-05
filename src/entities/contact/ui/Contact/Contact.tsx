@@ -2,7 +2,11 @@ import { useGetContactInfo } from "../../model/useGetContactInfo";
 import { CellSimple, Avatar } from "../../../../shared/ui";
 import { SkeletonWrapper, Skeleton } from "../../../../shared/ui";
 
-export const Contact = ({ chatId }) => {
+interface ContactProps {
+  chatId: string;
+}
+
+export const Contact = ({ chatId }: ContactProps) => {
   const { data, isError, isLoading } = useGetContactInfo(chatId);
 
   const subtitle =

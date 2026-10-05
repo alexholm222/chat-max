@@ -8,9 +8,13 @@ export const useChatAvatar = (chatId: string) => {
   return useQuery({
     queryKey: ["chat-avatar", instance?.idInstance, chatId],
     queryFn: ({ signal }) =>
-      requestQueue.add(() => getAvatar({ ...instance, chatId, signal })),
+      requestQueue.add(() => {
+        if (!instance?.idInstance || !instance.apiTokenInstance) {
+          throw new Error("Instance empity");
+        }
+        return getAvatar({ ...instance, chatId, signal });
+      }),
     retry: false,
     staleTime: 60 * 60 * 1000,
-  
   });
 };

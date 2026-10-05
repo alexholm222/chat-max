@@ -11,7 +11,7 @@ interface MessageListProps {
 }
 
 export const MessageList = ({ messages, chatId }: MessageListProps) => {
-  const parentRef = useRef(null);
+  const parentRef = useRef<HTMLDivElement>(null);
   const [paddingStart, setPaddingStart] = useState(0);
 
   const rowVirtualizer = useVirtualizer({

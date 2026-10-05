@@ -6,7 +6,12 @@ export const useChatMessages = (chatId: string) => {
   const { instance } = useInstanceStore((state) => state);
   return useQuery({
     queryKey: ["messages", instance?.idInstance, chatId],
-    queryFn: ({ signal }) => getMessages({ ...instance, chatId, signal }),
+    queryFn: ({ signal }) => {
+      if (!instance?.idInstance || !instance.apiTokenInstance) {
+        throw new Error("Instance is empiy");
+      }
+      return getMessages({ ...instance, chatId, signal });
+    },
     select: (messages) =>
       [...messages].sort((a, b) => a.timestamp - b.timestamp),
   });

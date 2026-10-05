@@ -33,7 +33,7 @@ export const ChatList = () => {
         }}
       >
         {virtualItems?.map((virtualItem) => {
-          const chat = data[virtualItem.index];
+          const chat = data?.[virtualItem.index];
 
           return <Chat key={chat.chatId} chat={chat} virtualItem={virtualItem} />;
         })}

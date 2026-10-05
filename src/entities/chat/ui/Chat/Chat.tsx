@@ -5,8 +5,15 @@ import { CellSimple, Counter } from "../../../../shared/ui";
 import { ChatAvatar } from "../ChatAvatar/ChatAvatar";
 import { ChatLastMessage } from "../ChatLastMessage/ChatLastMessage";
 import classNames from "classnames";
+import type { VirtualItem } from "@tanstack/react-virtual";
+import type { Chat as ChatType } from "../../model/types";
 
-export const Chat = ({ chat, virtualItem }) => {
+interface ChatProps {
+  chat: ChatType;
+  virtualItem: VirtualItem;
+}
+
+export const Chat = ({ chat, virtualItem }: ChatProps) => {
   const { chatId: openChatId } = useParams<{ chatId: string }>();
   const navigate = useNavigate();
   return (
@@ -34,8 +41,8 @@ export const Chat = ({ chat, virtualItem }) => {
         }}
         before={<ChatAvatar chatId={chat.chatId} size={56} />}
         after={
-          chat.unreadCount > 0 && (
-            <Counter key="counter" value={chat.unreadCount} />
+          (chat.unreadCount ?? 0) > 0 && (
+            <Counter key="counter" value={chat.unreadCount ?? 0} />
           )
         }
         onClick={() => navigate(`${chat.chatId}`)}

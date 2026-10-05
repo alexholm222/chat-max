@@ -1,8 +1,28 @@
 import { apiClient } from "../../../shared/api";
 
-export const getChatList = async ({ idInstance, apiTokenInstance }) => {
+interface InstanceParams {
+  idInstance: string;
+  apiTokenInstance: string;
+}
+
+interface ChatParams extends InstanceParams {
+  chatId: string;
+}
+
+interface ChatRequestParams extends ChatParams {
+  signal: AbortSignal;
+}
+
+interface ReadChatParams extends ChatParams {
+  idMessage: string;
+}
+
+export const getChatList = async ({
+  idInstance,
+  apiTokenInstance,
+}: InstanceParams) => {
   const { data } = await apiClient.get(
-    `waInstance${idInstance}/getChats/${apiTokenInstance}`
+    `waInstance${idInstance}/getChats/${apiTokenInstance}`,
   );
 
   return data;
@@ -13,11 +33,11 @@ export const getAvatar = async ({
   apiTokenInstance,
   chatId,
   signal,
-}) => {
+}: ChatRequestParams) => {
   const { data } = await apiClient.post(
     `waInstance${idInstance}/getAvatar/${apiTokenInstance}`,
     { chatId },
-    { signal }
+    { signal },
   );
 
   return data;
@@ -28,11 +48,11 @@ export const getLastMessage = async ({
   apiTokenInstance,
   chatId,
   signal,
-}) => {
+}: ChatRequestParams) => {
   const { data } = await apiClient.post(
     `waInstance${idInstance}/getChatHistory/${apiTokenInstance}`,
     { chatId, count: 1 },
-    { signal }
+    { signal },
   );
 
   return data;
@@ -42,7 +62,7 @@ export const getLastIncomingMessages = async ({
   idInstance,
   apiTokenInstance,
   signal,
-}) => {
+}: InstanceParams & { signal: AbortSignal }) => {
   const { data } = await apiClient.get(
     `waInstance${idInstance}/lastIncomingMessages/${apiTokenInstance}`,
     {
@@ -50,7 +70,7 @@ export const getLastIncomingMessages = async ({
         minutes: 1440,
       },
       signal,
-    }
+    },
   );
 
   return data;
@@ -60,7 +80,7 @@ export const getLastOutgoingMessages = async ({
   idInstance,
   apiTokenInstance,
   signal,
-}) => {
+}: InstanceParams & { signal: AbortSignal }) => {
   const { data } = await apiClient.get(
     `waInstance${idInstance}/lastOutgoingMessages/${apiTokenInstance}`,
     {
@@ -68,7 +88,7 @@ export const getLastOutgoingMessages = async ({
         minutes: 1440,
       },
       signal,
-    }
+    },
   );
 
   return data;
@@ -79,13 +99,13 @@ export const readChat = async ({
   apiTokenInstance,
   chatId,
   idMessage,
-}) => {
+}: ReadChatParams) => {
   const { data } = await apiClient.post(
     `/waInstance${idInstance}/readChat/${apiTokenInstance}`,
     {
       chatId,
       idMessage,
-    }
+    },
   );
 
   return data;

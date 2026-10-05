@@ -15,12 +15,18 @@ export const useReadChat = (chatId: string, messages: MessageType[] = []) => {
   const chatsQueryKey = ["chat-list", instance?.idInstance];
 
   const mutation = useMutation({
-    mutationFn: (idMessage: string) =>
-      readChat({
-        ...instance,
+    mutationFn: (idMessage: string) => {
+      if (!instance?.idInstance || !instance.apiTokenInstance) {
+        throw new Error("Instance is not configured");
+      }
+
+      return readChat({
+        idInstance: instance.idInstance,
+        apiTokenInstance: instance.apiTokenInstance,
         chatId,
         idMessage,
-      }),
+      });
+    },
 
     onSuccess: (_data, idMessage) => {
       lastReadMessageId.current = idMessage;

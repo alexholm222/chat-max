@@ -4,11 +4,16 @@ import dayjs from "dayjs";
 import CheckIcon from "./assets/checkIcon.svg?react";
 import IconTime from "./assets/iconTime.svg?react";
 
-export const MessageMeta = ({ timestamp, status }) => {
+interface MessageMetaProps {
+  timestamp: number;
+  status?: string;
+}
+
+export const MessageMeta = ({ timestamp, status }: MessageMetaProps) => {
   const isSent = status === "sent";
   const isRead = status === "read";
   const isDelivered = status === "delivered";
-  console.log(status)
+  console.log(status);
 
   return (
     <span className={s.meta}>

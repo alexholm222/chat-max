@@ -8,13 +8,18 @@ export const useCheckAccount = () => {
   const navigate = useNavigate();
 
   return useMutation({
-    mutationFn: (phoneNumber: string) =>
-      checkAccount({ ...instance, phoneNumber }),
+    mutationFn: (phoneNumber: string) => {
+      if (!instance?.idInstance || !instance.apiTokenInstance) {
+        throw new Error("Instance empity");
+      }
+      return checkAccount({ ...instance, phoneNumber });
+    },
+
     onSuccess: (data) => {
       const { exist, chatId } = data;
       if (exist && chatId) {
         navigate(`/${chatId}`);
-        return 'success'
+        return "success";
       }
     },
   });

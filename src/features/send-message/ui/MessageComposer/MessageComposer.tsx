@@ -8,7 +8,11 @@ import TextareaAutosize from "react-textarea-autosize";
 import { handleEnter } from "../../../../shared/utils";
 import iconSend from "./assets/iconSend.svg";
 
-export const MessageComposer = ({ chatId }) => {
+interface MessageComposerType {
+  chatId: string;
+}
+
+export const MessageComposer = ({ chatId }: MessageComposerType) => {
   const [value, setValue] = useState("");
   const [isScroll, setIsScroll] = useState(false);
   const { mutate: sendMessage, isPending } = useSendMessage(chatId!);

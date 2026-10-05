@@ -39,7 +39,10 @@ export const handleMessage = (
     }
   );
 
-  queryClient.setQueryData(["chat-last-message", idInstance, chatId], [message]);
+  queryClient.setQueryData(
+    ["chat-last-message", idInstance, chatId],
+    [message]
+  );
 
   queryClient.setQueryData<Chat[]>(["chat-list", idInstance], (chats = []) => {
     const chat = chats.find((item) => item.chatId === chatId);
@@ -50,7 +53,7 @@ export const handleMessage = (
 
     const updatedChat = {
       ...chat,
-      unreadCount: chat.unreadCount + 1,
+      unreadCount: (chat.unreadCount ?? 0) + 1,
     };
 
     return [updatedChat, ...chats.filter((item) => item.chatId !== chatId)];

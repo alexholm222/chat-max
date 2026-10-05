@@ -9,8 +9,8 @@ import { useReadChat } from "../../entities/chat";
 
 export const ChatWindow = () => {
   const { chatId } = useParams<{ chatId: string }>();
-  const { data, isLoading } = useChatMessages(chatId);
-  const { markAsRead } = useReadChat(chatId, data);
+  const { data, isLoading } = useChatMessages(chatId!);
+  const { markAsRead } = useReadChat(chatId!, data);
 
   useEffect(() => {
     if (!isLoading) {
@@ -20,9 +20,9 @@ export const ChatWindow = () => {
 
   return (
     <div className={s.window}>
-      <ChatHeader chatId={chatId} />
-      <MessageList messages={data ?? []} chatId={chatId} />
-      <MessageComposer chatId={chatId} />
+      <ChatHeader chatId={chatId!} />
+      <MessageList messages={data ?? []} chatId={chatId!} />
+      <MessageComposer chatId={chatId!} />
     </div>
   );
 };

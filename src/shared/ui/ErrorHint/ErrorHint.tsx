@@ -1,9 +1,12 @@
 import s from "./ErrorHint.module.scss";
 import { motion, AnimatePresence } from "motion/react";
 
-export const ErrorHint = ({  isError, text }) => {
-  
+interface ErrorHintProps {
+  isError: boolean;
+  text?: string;
+}
 
+export const ErrorHint = ({ isError, text }: ErrorHintProps) => {
   return (
     <AnimatePresence mode="wait">
       {text && (

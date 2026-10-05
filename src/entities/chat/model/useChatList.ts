@@ -7,6 +7,11 @@ export const useChatList = () => {
 
   return useQuery({
     queryKey: ["chat-list", instance?.idInstance],
-    queryFn: () => getChatList(instance),
+    queryFn: () => {
+      if (!instance?.idInstance || !instance.apiTokenInstance) {
+        throw new Error("Instance empity");
+      }
+      return getChatList(instance);
+    },
   });
 };

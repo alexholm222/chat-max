@@ -4,5 +4,4 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react(), svgr()],
-  base: "/max-chat/",
 });

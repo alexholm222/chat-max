@@ -4,7 +4,11 @@ import { useChatLastMessage } from "../../model/useChatLastMessage";
 import { SkeletonWrapper } from "../../../../shared/ui";
 import { ChatLastMessageSceleton } from "./ChatLastMessageSceleton";
 
-export const ChatLastMessage = ({ chatId }) => {
+interface ChatLastMessageProps {
+  chatId: string;
+}
+
+export const ChatLastMessage = ({ chatId }: ChatLastMessageProps) => {
   const { data, isLoading } = useChatLastMessage(chatId);
   const lastMessage = data ? data : null;
   const lastMessageContent = data?.textMessage ? data?.textMessage : "Вложение";
@@ -12,7 +16,7 @@ export const ChatLastMessage = ({ chatId }) => {
   return (
     <SkeletonWrapper
       isLoading={isLoading}
-      skeleton={<ChatLastMessageSceleton width={"90%"} height={12} />}
+      skeleton={<ChatLastMessageSceleton/>}
     >
       <div className={s.message}>
         {!lastMessage && "Не удалось загрузить последнее сообщение"}

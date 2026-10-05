@@ -20,7 +20,7 @@ export const AddChatModal = ({ open, setIsOpen }: AddChatModalProps) => {
     ? "Номер не найден"
     : isError
     ? "Введен некорректный номер"
-    : null;
+    : undefined;
   const inputRef = useMask({
     mask: "+7 ___ ___ __ __",
     replacement: { _: /\d/ },
@@ -83,7 +83,7 @@ export const AddChatModal = ({ open, setIsOpen }: AddChatModalProps) => {
             withClearButton={false}
             onChange={handleChange}
             placeholder="+7 123 456 78 90"
-            hint={<ErrorHint isError={isError} text={hintText}  />}
+            hint={<ErrorHint isError={isError} text={hintText} />}
             onKeyDown={(e) => handleEnter(e, handleCheckAccount)}
           />
           <Button

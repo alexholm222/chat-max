@@ -7,7 +7,12 @@ export const useGetContactInfo = (chatId: string) => {
 
   return useQuery({
     queryKey: ["contact", instance?.idInstance, chatId],
-    queryFn: () => getContactInfo({ ...instance, chatId }),
+    queryFn: () => {
+      if (!instance?.idInstance || !instance.apiTokenInstance) {
+        throw new Error("Instance is empiy");
+      }
+      return getContactInfo({ ...instance, chatId });
+    },
     retry: false,
   });
 };

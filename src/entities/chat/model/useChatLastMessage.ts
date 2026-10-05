@@ -1,6 +1,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useInstanceStore } from "../../instance";
 import { useChatLastMessages } from "./useChatLastMessages";
+import type { MessageType } from "../../message";
 
 export const useChatLastMessage = (chatId: string) => {
   const queryClient = useQueryClient();
@@ -14,7 +15,7 @@ export const useChatLastMessage = (chatId: string) => {
     chatId,
   ];
 
-  const cachedMessage = queryClient.getQueryData(
+  const cachedMessage = queryClient.getQueryData<MessageType[]>(
     queryKey,
   )?.[0];
 
@@ -22,7 +23,7 @@ export const useChatLastMessage = (chatId: string) => {
     const message = query.data?.get(chatId);
 
     if (message) {
-      queryClient.setQueryData(queryKey, [message]);
+      queryClient.setQueryData<MessageType[]>(queryKey, [message]);
     }
 
     return {

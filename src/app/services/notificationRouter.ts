@@ -1,23 +1,34 @@
 import type { QueryClient } from "@tanstack/react-query";
-
-import { handleStateInstanceChanged } from "../../entities/instance";
 import { handleMessage } from "../../entities/message";
 import { handleMessageStatus } from "../../entities/message";
+import type {
+  IncomingMessageNotification,
+  MessageStatusNotification,
+  Notification,
+} from "../../shared/api/notifications/type";
 
-export const notificationRouter = (notification, queryClient: QueryClient) => {
-   
-  switch (notification.body.typeWebhook) {
-   
-    case "incomingMessageReceived":
-      handleMessage(notification, queryClient);
-      break;
+const isIncomingMessageNotification = (
+  notification: Notification
+): notification is IncomingMessageNotification => {
+  return notification.body.typeWebhook === "incomingMessageReceived";
+};
 
-    case "outgoingMessageStatus":
-      handleMessageStatus(notification, queryClient);
-      break;
+const isMessageStatusNotification = (
+  notification: Notification
+): notification is MessageStatusNotification => {
+  return notification.body.typeWebhook === "outgoingMessageStatus";
+};
 
-    case "stateInstanceChanged":
-      handleStateInstanceChanged(notification, queryClient);
-      break;
+export const notificationRouter = (
+  notification: Notification,
+  queryClient: QueryClient
+) => {
+  if (isIncomingMessageNotification(notification)) {
+    handleMessage(notification, queryClient);
+    return;
+  }
+
+  if (isMessageStatusNotification(notification)) {
+    handleMessageStatus(notification, queryClient);
   }
 };
