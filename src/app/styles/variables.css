@@ -8,19 +8,20 @@
   --background-overlay-hard: #0c0d0ecc;
   --divider-secondary: #0c0d0e0f;
   --text-tertiary: #06070885;
-  --skeleton-background: #eef0f2;
-  --skeleton-shimmer: rgba(255, 255, 255, 0.55);
+  --skeleton-background: #292a30;
+  --skeleton-shimmer: rgba(255, 255, 255, 0.04);
   --text-negative: #ce4257;
   --message-incoming: #ffffff;
   --message-outgoing: #d9f5ff;
   --message-text: #17181a;
   --message-secondary-text: #7b8188;
-  --bubbles-background-bubble-gradient-step-1: #fff;
-  --bubbles-background-bubble-gradient-step-2: #fff;
-  --bubbles-background-bubble-gradient-step-3: #fff;
-  --bubbles-background-bubble-outcome-gradient-step-1: #e9fdff;
-  --bubbles-background-bubble-outcome-gradient-step-2: #e9fdff;
-  --bubbles-background-bubble-outcome-gradient-step-3: #e9fdff;
+  --bubbles-background-bubble-gradient-step-1: #3b3f5e;
+  --bubbles-background-bubble-gradient-step-2: #373a4e;
+  --bubbles-background-bubble-gradient-step-3: #32343d;
+  --bubbles-background-bubble-outcome-gradient-step-1: #8849b4;
+  --bubbles-background-bubble-outcome-gradient-step-2: #735acd;
+  --bubbles-background-bubble-outcome-gradient-step-3: #5d6ae5;
+  --bubbles-text-time: #ffffffa3;
   --chat-background-pattern-step-1: #d9f5ff;
   --chat-background-pattern-step-2: #c8efff;
   --chat-background-pattern-step-3: #b9e8ff;
@@ -28,6 +29,9 @@
   --chat-background-pattern-step-4: #e7f9ff;
   --chat-background-pattern-step-5: #d8f3ff;
   --chat-background-pattern-step-6: #c8edff;
+
+  --chat-background-pattern-gradient-step-1: #f5fcff;
+  --chat-background-pattern-gradient-step-2: #dff5ff;
 
   --chat-background-pattern-gradient-step-1: #f5fcff;
   --chat-background-pattern-gradient-step-2: #dff5ff;
