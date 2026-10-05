@@ -9,7 +9,7 @@ export const ChatPage = () => {
   return (
     <div className={s.layout}>
       <Group orientation="horizontal" autoSave="chat-layout">
-        <Panel className={s.left} defaultSize="367px" minSize="300px" maxSize="450px">
+        <Panel className={s.left} defaultSize="367px" minSize="300px" maxSize="550px">
           <div className={s.listHeader}>
             <h2>Чаты</h2>
             <div className={s.buttons}>
