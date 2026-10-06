@@ -1,5 +1,5 @@
 import type { QueryClient } from "@tanstack/react-query";
-import type { MessageStatusNotification } from "../../../shared/api/notifications/type";
+import type { MessageStatusNotification } from "../../notifications/model/type";
 import type { MessageType } from "./types";
 
 export const handleMessageStatus = (

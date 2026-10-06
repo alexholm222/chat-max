@@ -5,7 +5,7 @@ import type {
   IncomingMessageNotification,
   MessageStatusNotification,
   Notification,
-} from "../../shared/api/notifications/type";
+} from "../../entities/notifications/model/type";
 
 const isIncomingMessageNotification = (
   notification: Notification

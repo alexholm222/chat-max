@@ -1,6 +1,6 @@
 import type { QueryClient } from "@tanstack/react-query";
 
-import type { IncomingMessageNotification } from "../../../shared/api/notifications/type";
+import type { IncomingMessageNotification } from "../../notifications/model/type";
 import type { MessageType } from "./types";
 import type { Chat } from "../../chat";
 

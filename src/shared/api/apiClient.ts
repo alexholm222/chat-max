@@ -5,10 +5,6 @@ export const apiClient = axios.create({
     headers: { 'Content-Type': 'application/json' }
 })
 
-export const apiAvatarTest = axios.create({
-    baseURL: 'https://picsum.photos/200/300',
-})
-
 
 
 

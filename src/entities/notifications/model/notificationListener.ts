@@ -1,7 +1,7 @@
 import { Subject } from "rxjs";
-import { deleteNotification } from "./deleteNotification";
-import { receiveNotification } from "./receiveNotification";
-import type { Notification } from "../notifications/type";
+import { deleteNotification } from "../api/deleteNotification";
+import { receiveNotification } from "../api/receiveNotification";
+import type { Notification } from "./type";
 
 export const notification$ = new Subject<Notification>();
 

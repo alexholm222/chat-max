@@ -1,15 +1,13 @@
 import { Navigate } from "react-router-dom";
 import { useInstanceStore } from "../../entities/instance";
 import { useInstanceState } from "../../entities/instance";
-import { useChatList } from "../../entities/chat/model/useChatList";
 import { Button } from "../../shared/ui";
 
 export const InstanceCheck = () => {
   const { data, isLoading: isInstanceLoading, isError } = useInstanceState();
   const deleteInstance = useInstanceStore((state) => state.deleteInstance);
-  const { isLoading: isChatsLoading } = useChatList();
 
-  if (isInstanceLoading || isChatsLoading) {
+  if (isInstanceLoading ) {
     return <p>Получаем статус инстанса</p>;
   }
 

@@ -1,4 +1,4 @@
-import { apiClient } from "../apiClient";
+import { apiClient } from "../../../shared/api";
 
 interface ReceiveNotificationParams {
   idInstance: string;
@@ -22,6 +22,5 @@ export const receiveNotification = async ({
       signal,
     }
   );
-
   return data;
 };

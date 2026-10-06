@@ -13,5 +13,6 @@ export const useChatList = () => {
       }
       return getChatList(instance);
     },
+    staleTime: Infinity,
   });
 };
